@@ -17,6 +17,7 @@ defmodule Discuss.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    # Whenever a Client makes a get request to '/'. Find module called 'PageController', run 'index'-function.
   end
 
   # Other scopes may use custom stacks.
