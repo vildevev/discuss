@@ -42,4 +42,17 @@ defmodule Discuss.TopicController do
 				render conn, "new.html", changeset: changeset
 		end
 	end 
+
+	# using pattern matching to assign the id from the params to the 'topic_id' variable
+	def edit(conn, %{"id" => topic_id}) do
+		# using existing Topic struct to populate form
+		# .get method will find single object
+		topic = Repo.get(Topic, topic_id)
+		changeset = Topic.changeset(topic)
+
+		render conn, "edit.html", changeset: changeset, topic: topic
+	end
+
+	def update do 
+	end 
 end
