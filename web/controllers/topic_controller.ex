@@ -10,7 +10,7 @@ defmodule Discuss.TopicController do
 		# 'Use' = 'really fancy setup' of other module
 	alias Discuss.Topic
 
-	def new(conn, params) do
+	def new(conn, _params) do
 		# Conn = short for 'connection'. Is an Elixir struct that represents both incoming and outgoing request. 
 		# Params = help us parse the URL
 
@@ -20,7 +20,8 @@ defmodule Discuss.TopicController do
 		render conn, "new.html", changeset: changeset # set equal to '@changeset' variable in template file. '@conn' is passed by default.
 	end
 
-	def create(conn, params) do 
+	def create(conn, %{"topic" => topic}) do 
+		# params object is a 'map' where the keys are string, not atoms. Therefore you have to access values with pattern matching.
 
 	end 
 end

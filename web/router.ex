@@ -13,6 +13,7 @@ defmodule Discuss.Router do
     plug :accepts, ["json"]
   end
 
+  # Command for viewing existing routes in terminal: 'mix phoenix.routes'
   scope "/", Discuss do
     pipe_through :browser # Use the default browser stack
 
