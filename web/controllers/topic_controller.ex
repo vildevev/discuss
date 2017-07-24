@@ -32,7 +32,12 @@ defmodule Discuss.TopicController do
 		changeset = Topic.changeset(%Topic{}, topic)
 		# automatically detects whether input is valid
 		case Repo.insert(changeset) do
-			{:ok, post} -> IO.inspect(post)
+			{:ok, post} -> 
+				conn 
+				# alerts user about successful creation
+				|> put_flash(:info, "Topic Created")
+				# redirect to index
+				|> redirect(to: topic_path(conn, :index))
 			{:error, changeset} ->
 				render conn, "new.html", changeset: changeset
 		end
