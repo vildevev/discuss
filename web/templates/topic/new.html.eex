@@ -4,6 +4,8 @@
 	<div class="form-group">
 	<!-- Generates text input tag, that records title that user sets -->
 	<%= text_input f, :title, placeholder: "Title", class: "form-control" %>
+	<!-- Looking for errors related to the 'title' property -->
+	<%= error_tag f, :title %> 
 	</div>
 
 	<%= submit "Save Topic", class: "btn btn-primary" %> 

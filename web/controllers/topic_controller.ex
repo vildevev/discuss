@@ -22,6 +22,13 @@ defmodule Discuss.TopicController do
 
 	def create(conn, %{"topic" => topic}) do 
 		# params object is a 'map' where the keys are string, not atoms. Therefore you have to access values with pattern matching.
-
+		# depends on 'Ecto' framework, is responsible for changeset and the 'repo' module = portal to the db.
+		changeset = Topic.changeset(%Topic{}, topic)
+		# autimcally detects whether input is valid
+		case Repo.insert(changeset) do
+			{:ok, post} -> IO.inspect(post)
+			{:error, changeset} ->
+				render conn, "new.html", changeset: changeset
+		end
 	end 
 end
