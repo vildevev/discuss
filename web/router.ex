@@ -16,8 +16,10 @@ defmodule Discuss.Router do
   scope "/", Discuss do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
     # Whenever a Client makes a get request to '/'. Find module called 'PageController', run 'index'-function.
+    get "/", PageController, :index
+    get "/topics/new", TopicController, :new
+    # 'REST'-ful naming-conventions in Phoenix include: 'new', 'create', 'index', 'delete', 'edit', 'update'
   end
 
   # Other scopes may use custom stacks.
