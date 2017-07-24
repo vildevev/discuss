@@ -53,6 +53,19 @@ defmodule Discuss.TopicController do
 		render conn, "edit.html", changeset: changeset, topic: topic
 	end
 
-	def update(conn, ) do 
+	# topic object is new object 
+	def update(conn, %{"id" => topic_id, "topic" => topic}) do
+		# fetch old object
+		# object that describes how we are going to migrate the existing record in db to new one
+		changeset = Repo.get(Topic, topic_id) |> Topic.changeset(topic)
+
+		case Repo.update(changeset) do
+			{:ok, _topic} ->
+				conn
+				|> put_flash(:info, "Topic Updated")
+				|> redirect(to: topic_path(conn, :index))
+			{:error, changeset} -> 
+				render conn, "edit.html", changeset: changeset
+		end
 	end 
 end
