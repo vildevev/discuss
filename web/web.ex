@@ -15,7 +15,7 @@ defmodule Discuss.Web do
   Do NOT define functions inside the quoted expressions
   below.
   """
-
+  # This is where you can add additional helper modules that might be needed by entire application.
   def model do
     quote do
       use Ecto.Schema

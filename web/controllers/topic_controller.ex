@@ -1,4 +1,7 @@
 defmodule Discuss.TopicController do
+  # Defining all the behaviors needed. Make them available here. Found in '/web/web.ex'
+  # Phoenix's code sharing. Functional programming version of class inheritance.
+	use Discuss.Web, :controller
 	# Has name of resource in singular form 
 	# In OO-Programming you make reusable functionality in controllerbaseclass. Inherits those in controller.
 	# In functional Programming:
