@@ -19,6 +19,7 @@ defmodule Discuss.Router do
     # Whenever a Client makes a get request to '/'. Find module called 'PageController', run 'index'-function.
     get "/", PageController, :index
     get "/topics/new", TopicController, :new
+    post "/topics", TopicController, :create
     # 'REST'-ful naming-conventions in Phoenix include: 'new', 'create', 'index', 'delete', 'edit', 'update'
   end
 

@@ -1,0 +1,10 @@
+<!-- Interpolated Elixir code in HTML. -->
+<!-- Create a form using this changeset, whenever someone submits, send it to the create route that belongs to 'Topic' -->
+<%= form_for @changeset, topic_path(@conn, :create), fn f -> %>
+	<div class="form-group">
+	<!-- Generates text input tag, that records title that user sets -->
+	<%= text_input f, :title, placeholder: "Title", class: "form-control" %>
+	</div>
+
+	<%= submit "Save Topic", class: "btn btn-primary" %> 
+<% end %>
