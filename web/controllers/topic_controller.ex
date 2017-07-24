@@ -9,7 +9,8 @@ defmodule Discuss.TopicController do
 		# 'Alias' = shortcut for making reference to function that's imported without having to type out name of module it belongs to. ex: add
 		# 'Use' = 'really fancy setup' of other module
 
-	def new() do
-		
+	def new(conn, params) do
+		# Conn = short for 'connection'. Is an Elixir struct that represents both incoming and outgoing request. 
+		# Params = help us parse the URL
 	end
 end
