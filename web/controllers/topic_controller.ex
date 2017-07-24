@@ -8,9 +8,13 @@ defmodule Discuss.TopicController do
 		# 'Import' = copy all functions out of this module, give to another. ex: TopicController.add
 		# 'Alias' = shortcut for making reference to function that's imported without having to type out name of module it belongs to. ex: add
 		# 'Use' = 'really fancy setup' of other module
-
+	alias Discuss.Topic
+	
 	def new(conn, params) do
 		# Conn = short for 'connection'. Is an Elixir struct that represents both incoming and outgoing request. 
 		# Params = help us parse the URL
+
+		# create empty changeset, takes struct and params as arguments
+		changeset = Topic.changeset(%Topic{}, %{})
 	end
 end
