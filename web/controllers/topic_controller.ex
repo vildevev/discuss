@@ -32,7 +32,7 @@ defmodule Discuss.TopicController do
 		changeset = Topic.changeset(%Topic{}, topic)
 		# automatically detects whether input is valid
 		case Repo.insert(changeset) do
-			{:ok, post} -> 
+			{:ok, _topic} -> 
 				conn 
 				# alerts user about successful creation
 				|> put_flash(:info, "Topic Created")
@@ -53,6 +53,6 @@ defmodule Discuss.TopicController do
 		render conn, "edit.html", changeset: changeset, topic: topic
 	end
 
-	def update do 
+	def update(conn, ) do 
 	end 
 end
