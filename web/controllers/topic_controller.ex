@@ -10,6 +10,12 @@ defmodule Discuss.TopicController do
 		# 'Use' = 'really fancy setup' of other module
 	alias Discuss.Topic
 
+	def index(conn, _params) do
+		# retrieve the records from the db. Name of table is the argument.
+		topics = Repo.all(Topic) 
+		render conn, "index.html", topics: topics
+	end
+
 	def new(conn, _params) do
 		# Conn = short for 'connection'. Is an Elixir struct that represents both incoming and outgoing request. 
 		# Params = help us parse the URL
@@ -24,7 +30,7 @@ defmodule Discuss.TopicController do
 		# params object is a 'map' where the keys are string, not atoms. Therefore you have to access values with pattern matching.
 		# depends on 'Ecto' framework, is responsible for changeset and the 'repo' module = portal to the db.
 		changeset = Topic.changeset(%Topic{}, topic)
-		# autimcally detects whether input is valid
+		# automatically detects whether input is valid
 		case Repo.insert(changeset) do
 			{:ok, post} -> IO.inspect(post)
 			{:error, changeset} ->
