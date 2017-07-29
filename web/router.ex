@@ -1,6 +1,7 @@
 defmodule Discuss.Router do
   use Discuss.Web, :router
 
+  # pipeline as plugs = preprocessing before request hits
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -14,6 +15,7 @@ defmodule Discuss.Router do
   end
 
   # Command for viewing existing routes in terminal: 'mix phoenix.routes'
+  # 'scope' is about namespacing the urls. ex: all start with '/topics'
   scope "/", Discuss do
     pipe_through :browser # Use the default browser stack
 
@@ -27,6 +29,16 @@ defmodule Discuss.Router do
     resources "/", TopicController
     # all routes automatically generated
   end
+
+  scope "/auth", Discuss do 
+    # sends them through the browser pipeline
+    pipe_through :browser 
+
+    # should work with any provider
+    get "/:provider", AuthController, :request 
+    get "/:provider/callback", AuthController, :callback
+
+  end 
 
   # Other scopes may use custom stacks.
   # scope "/api", Discuss do
