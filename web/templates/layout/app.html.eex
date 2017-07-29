@@ -31,6 +31,7 @@
       </main>
 
     </div> <!-- /container -->
+    <script type='text/javascript' src='config.js'></script>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>
