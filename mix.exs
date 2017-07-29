@@ -12,7 +12,6 @@ defmodule Discuss.Mixfile do
      aliases: aliases(),
      deps: deps()]
   end
-
   # Configuration for the OTP application.
   #
   # Type `mix help compile.app` for more information.

@@ -33,6 +33,6 @@ config :ueberauth, Ueberauth,
 		github: { Ueberauth.Strategy.Github, [] }
 	]
 
-config :ueberauth, Ueberauth.Strategy.Github.Oauth,
+config :ueberauth, Ueberauth.Strategy.Github.OAuth,
 	client_id: config.client_id,
 	client_secret: config.client_secret

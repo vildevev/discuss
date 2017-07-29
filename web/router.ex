@@ -37,7 +37,6 @@ defmodule Discuss.Router do
     # should work with any provider
     get "/:provider", AuthController, :request 
     get "/:provider/callback", AuthController, :callback
-
   end 
 
   # Other scopes may use custom stacks.
